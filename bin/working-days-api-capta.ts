@@ -4,6 +4,10 @@ import { WorkingDaysApiCaptaStack } from '../lib/working-days-api-capta-stack';
 
 const app = new cdk.App();
 new WorkingDaysApiCaptaStack(app, 'WorkingDaysApiCaptaStack', {
+  env: {
+    account: process.env.CDK_DEFAULT_ACCOUNT,
+    region: process.env.CDK_DEFAULT_REGION || 'us-east-1',
+  },
   /* If you don't specify 'env', this stack will be environment-agnostic.
    * Account/Region-dependent features and context lookups will not work,
    * but a single synthesized template can be deployed anywhere. */
